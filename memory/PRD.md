@@ -58,15 +58,13 @@ Pre-launch landing page / Coming soon website
 - Hover animations with scale effect on images
 - Card shadows for depth
 
-#### 5. Exclusive Waitlist Section
-- Email capture form with validation
-- Four compelling benefits with checkmark icons:
-  - Exclusive early access
-  - Launch discount for founding members
-  - Behind-the-scenes artisan insights
-  - Priority notification on limited editions
-- Toast notification on successful signup
-- Warm Sage CTA button with Mail icon
+#### 5. Connect With Us Section
+- Direct contact information display
+- Email contact: everyrozlife@gmail.com (clickable mailto: link)
+- Instagram: @everyrozlife (opens in new tab: https://www.instagram.com/everyrozlife/)
+- Elegant cards with icons and hover effects
+- Personal message inviting customers to reach out
+- NO form submission - simple, direct communication
 
 #### 6. Header Navigation
 - Fixed header with backdrop blur effect
@@ -76,7 +74,7 @@ Pre-launch landing page / Coming soon website
 
 #### 7. Footer
 - Brand name and tagline
-- Social media icons (Instagram, Facebook) with hover effects
+- Instagram icon linked to @everyrozlife profile
 - Copyright notice
 - Dark chocolate background (#2C2C2C)
 
@@ -90,9 +88,9 @@ Pre-launch landing page / Coming soon website
 - Custom selection color matching brand
 
 ## Current Implementation Status
-**Status**: Frontend MVP Complete ✅  
-**Data**: Mock data in `/app/frontend/src/data/mock.js`  
-**No backend required** - This is a static coming soon page with client-side email form handling
+**Status**: Frontend Complete ✅  
+**Data**: Contact info in `/app/frontend/src/data/mock.js`  
+**No backend required** - This is a static coming soon page with direct contact links (email & Instagram)
 
 ## Files Created
 ```
@@ -106,19 +104,19 @@ Pre-launch landing page / Coming soon website
 └── index.css                    # Typography, fonts
 ```
 
-## Next Action Items (Phase 2 - When Ready to Launch)
+## Next Action Items (Phase 2 - Future Enhancements)
 
-### P0 - Essential for Launch
-1. **Backend Email Collection**
-   - Create MongoDB schema for waitlist emails
-   - Build `/api/waitlist` POST endpoint
-   - Email validation and duplicate prevention
-   - Success/error handling
+### P0 - Essential for E-commerce Launch
+1. **Product Catalog & E-commerce**
+   - Add product pages with prices
+   - Shopping cart and checkout flow
+   - Payment gateway integration (Razorpay/Stripe)
+   - Order management system
 
-2. **Email Marketing Integration**
-   - Connect to Mailchimp/SendGrid
-   - Automated welcome email for waitlist signups
-   - Admin dashboard to view waitlist
+2. **Inventory Management**
+   - Backend for product catalog
+   - Stock tracking
+   - Size/color variants
 
 ### P1 - Important Enhancements
 3. **Social Sharing**
