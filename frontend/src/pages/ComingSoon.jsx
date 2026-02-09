@@ -1,21 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Mail, Instagram, Facebook, Heart, Sparkles, Clock } from 'lucide-react';
+import { Mail, Instagram, Heart, Sparkles, Clock } from 'lucide-react';
 import { Button } from '../components/ui/button';
-import { Input } from '../components/ui/input';
 import { Card } from '../components/ui/card';
-import { useToast } from '../hooks/use-toast';
 import {
   brandInfo,
   heroContent,
   aboutContent,
   productPreviews,
-  waitlistBenefits,
+  contactInfo,
 } from '../data/mock';
 
 const ComingSoon = () => {
-  const [email, setEmail] = useState('');
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const { toast } = useToast();
 
   useEffect(() => {
     const calculateTimeLeft = () => {
@@ -67,7 +63,7 @@ const ComingSoon = () => {
           <nav className="hidden md:flex space-x-8">
             <a href="#about" className="text-sm text-[#2C2C2C] hover:text-[#C4B5A0] tracking-wider uppercase transition-colors duration-300">About</a>
             <a href="#collection" className="text-sm text-[#2C2C2C] hover:text-[#C4B5A0] tracking-wider uppercase transition-colors duration-300">Collection</a>
-            <a href="#waitlist" className="text-sm text-[#2C2C2C] hover:text-[#C4B5A0] tracking-wider uppercase transition-colors duration-300">Join Waitlist</a>
+            <a href="#contact" className="text-sm text-[#2C2C2C] hover:text-[#C4B5A0] tracking-wider uppercase transition-colors duration-300">Connect</a>
           </nav>
         </div>
       </header>
@@ -91,10 +87,10 @@ const ComingSoon = () => {
                 {heroContent.description}
               </p>
               <Button 
-                onClick={() => document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })}
                 className="bg-[#C4B5A0] hover:bg-[#6B4E37] text-[#FAF9F7] px-8 py-6 text-sm tracking-widest uppercase transition-all duration-300"
               >
-                Join the Waitlist
+                Get in Touch
               </Button>
             </div>
             <div className="relative">
@@ -206,46 +202,65 @@ const ComingSoon = () => {
         </div>
       </section>
 
-      {/* Waitlist Section */}
-      <section id="waitlist" className="py-32">
+      {/* Connect Section */}
+      <section id="contact" className="py-32">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
             <Card className="p-12 bg-[#D4C4B0]/20 border-none shadow-xl">
-              <div className="text-center mb-8">
+              <div className="text-center mb-12">
                 <h3 className="font-serif text-4xl text-[#2C2C2C] mb-4">
-                  Join Our Exclusive Waitlist
+                  Connect With Us
                 </h3>
                 <p className="text-[#8B7D6B]">
-                  Be among the first to experience our curated collection
+                  Reach out to learn more about our upcoming collection
                 </p>
               </div>
-              <div className="space-y-6 mb-8">
-                {waitlistBenefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start space-x-3">
-                    <div className="w-5 h-5 rounded-full bg-[#C4B5A0] flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <span className="text-[#FAF9F7] text-xs">✓</span>
+              
+              <div className="space-y-8">
+                {/* Email */}
+                <div className="group">
+                  <div className="flex items-center justify-center space-x-4 p-6 bg-[#FAF9F7] rounded-lg hover:shadow-lg transition-all duration-300">
+                    <div className="w-12 h-12 bg-[#C4B5A0] rounded-full flex items-center justify-center flex-shrink-0">
+                      <Mail className="w-6 h-6 text-[#FAF9F7]" />
                     </div>
-                    <p className="text-sm text-[#2C2C2C]">{benefit}</p>
+                    <div className="flex-1">
+                      <p className="text-xs text-[#8B7D6B] tracking-widest uppercase mb-1">Email Us</p>
+                      <a 
+                        href={`mailto:${contactInfo.email}`}
+                        className="text-lg text-[#2C2C2C] hover:text-[#C4B5A0] transition-colors duration-300 font-medium"
+                      >
+                        {contactInfo.email}
+                      </a>
+                    </div>
                   </div>
-                ))}
+                </div>
+
+                {/* Instagram */}
+                <div className="group">
+                  <div className="flex items-center justify-center space-x-4 p-6 bg-[#FAF9F7] rounded-lg hover:shadow-lg transition-all duration-300">
+                    <div className="w-12 h-12 bg-[#C4B5A0] rounded-full flex items-center justify-center flex-shrink-0">
+                      <Instagram className="w-6 h-6 text-[#FAF9F7]" />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-xs text-[#8B7D6B] tracking-widest uppercase mb-1">Follow Us</p>
+                      <a 
+                        href={contactInfo.instagram.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-lg text-[#2C2C2C] hover:text-[#C4B5A0] transition-colors duration-300 font-medium"
+                      >
+                        {contactInfo.instagram.handle}
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <form onSubmit={handleWaitlistSubmit} className="space-y-4">
-                <Input 
-                  type="email"
-                  placeholder="Enter your email address"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  className="h-12 bg-[#FAF9F7] border-[#8B7D6B]/20 focus:border-[#C4B5A0] text-[#2C2C2C] placeholder:text-[#8B7D6B]"
-                />
-                <Button 
-                  type="submit"
-                  className="w-full bg-[#C4B5A0] hover:bg-[#6B4E37] text-[#FAF9F7] py-6 text-sm tracking-widest uppercase transition-all duration-300"
-                >
-                  <Mail className="w-4 h-4 mr-2" />
-                  Reserve Your Spot
-                </Button>
-              </form>
+
+              <div className="mt-12 text-center">
+                <p className="text-sm text-[#8B7D6B] italic">
+                  We'd love to hear from you. Drop us a message or follow our journey on Instagram.
+                </p>
+              </div>
             </Card>
           </div>
         </div>
@@ -260,11 +275,13 @@ const ComingSoon = () => {
               <p className="text-xs text-[#8B7D6B] tracking-widest uppercase">Fashion Brand</p>
             </div>
             <div className="flex space-x-6">
-              <a href="#" className="text-[#8B7D6B] hover:text-[#C4B5A0] transition-colors duration-300">
+              <a 
+                href={contactInfo.instagram.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#8B7D6B] hover:text-[#C4B5A0] transition-colors duration-300"
+              >
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-[#8B7D6B] hover:text-[#C4B5A0] transition-colors duration-300">
-                <Facebook className="w-5 h-5" />
               </a>
             </div>
           </div>

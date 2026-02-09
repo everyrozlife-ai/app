@@ -80,15 +80,14 @@ export const productPreviews = [
   },
 ];
 
-export const socialLinks = [
-  { name: "Instagram", url: "#", icon: "instagram" },
-  { name: "Facebook", url: "#", icon: "facebook" },
-  { name: "Pinterest", url: "#", icon: "pinterest" },
-];
+export const contactInfo = {
+  email: "everyrozlife@gmail.com",
+  instagram: {
+    handle: "@everyrozlife",
+    url: "https://www.instagram.com/everyrozlife/",
+  },
+};
 
-export const waitlistBenefits = [
-  "Exclusive early access to our launch collection",
-  "Special launch discount for founding members",
-  "Behind-the-scenes insights into our artisan community",
-  "Priority notification on limited edition pieces",
+export const socialLinks = [
+  { name: "Instagram", url: "https://www.instagram.com/everyrozlife/", icon: "instagram" },
 ];
