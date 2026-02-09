@@ -35,17 +35,6 @@ const ComingSoon = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const handleWaitlistSubmit = (e) => {
-    e.preventDefault();
-    if (email) {
-      toast({
-        title: "Welcome to the exclusive waitlist!",
-        description: "You'll be among the first to experience our collection.",
-      });
-      setEmail('');
-    }
-  };
-
   return (
     <div className="min-h-screen bg-[#FAF9F7]">
       {/* Header */}
