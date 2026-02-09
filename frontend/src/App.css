@@ -1,0 +1,63 @@
+/* Custom animations and effects for EveryRozLife */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+    background-color: #C4B5A0;
+    color: #FAF9F7;
+}
+
+/* Focus ring customization */
+*:focus-visible {
+    outline: 2px solid #C4B5A0;
+    outline-offset: 2px;
+}
+
+/* Custom cursor for luxury feel */
+a, button {
+    cursor: pointer;
+}
+
+/* Image loading effect */
+img {
+    transition: opacity 0.3s ease-in-out;
+}
+
+img:not([src]) {
+    opacity: 0;
+}
+
+/* Backdrop blur support */
+@supports (backdrop-filter: blur(12px)) {
+    .backdrop-blur-sm {
+        backdrop-filter: blur(12px);
+    }
+}
